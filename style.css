@@ -93,7 +93,7 @@ button:disabled:hover {
 }
 
 #stats {
-  display: none;
+  visibility: hidden;
 }
 
 #stats p {

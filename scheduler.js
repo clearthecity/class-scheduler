@@ -34,7 +34,7 @@ function setup() {
   clearCalendar();
   algorithms_tried = 0;
   document.getElementById("calArea").style.display = "none";
-  document.getElementById("stats").style.display = "none";
+  document.getElementById("stats").style.visibility = "hidden";
 
   NUM_COURSES = document.getElementById("input-courses").value;
   NUM_ROOMS = document.getElementById("input-rooms").value;
@@ -55,6 +55,7 @@ function setup() {
     document.getElementById("button-mcv").disabled = false;
     document.getElementById("button-genetic").disabled = false;
   }
+  fillTable(courses);
 }
 
 function Course() {
@@ -242,8 +243,9 @@ function createRooms() {
 //----------------------------------------
 
 function startMCV() {
+  clearTable();
+
   if (algorithms_tried > 0) {
-    clearTable();
     for (var c = 0; c < courses.length; c++)
       courses[c].clearAssignment();
     for (var p = 0; p < professors.length; p++)
@@ -473,6 +475,7 @@ function fillTable(c_array) {
       constraintString += c_array[i].seats + " students "
     constraintCell.innerHTML = "<em>" + constraintString + "<em>";
 
+    if (c_array[i].roomIndex != -1) {
     var timeCell = row.insertCell();
     if (c_array[i].day != -1 && c_array[i].hour != -1)
       timeCell.innerHTML = days_of_week[c_array[i].day] + " " + hours_of_day[c_array[i].hour];
@@ -493,6 +496,7 @@ function fillTable(c_array) {
       satCell.innerHTML = "<span style='background-color: #eea29a'>" + c_array[i].satisfaction + "</span>";
     else
       satCell.innerHTML = c_array[i].satisfaction;
+    }
   }
   document.getElementById("courseTable").style.display = "block";
 }
@@ -502,7 +506,7 @@ function displayStats_MCV() {
   document.getElementById("fitness-or-sat-info").innerHTML = "Average satisfaction: ";
   document.getElementById("fitness-of-best").innerHTML = avg_sat.toFixed(2);
   document.getElementById("generation-info").style.display = "none";
-  document.getElementById("stats").style.display = "inline";
+  document.getElementById("stats").style.visibility = "visible";
 }
 
 function clearTable() {
@@ -1097,5 +1101,5 @@ function displayStats_Genetic(best_sat) {
   document.getElementById("fitness-of-best").innerHTML = best_sat.toFixed(2) + ". ";
   document.getElementById("gen-number").innerHTML = genCount;
   document.getElementById("generation-info").style.display = "inline";
-  document.getElementById("stats").style.display = "inline";
+  document.getElementById("stats").style.visibility = "visible";
 }
