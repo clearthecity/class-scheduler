@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>Genetic Class Scheduler</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="scheduler.js"></script>
+</head>
+
+<body onload="refresh()">
+
+  <noscript>This page requires JavaScript.</noscript>
+
+  <div id="form-inputs">
+    <div id="inputs-setup">
+    <label for="input-courses">Number of courses</label>
+    <input type="number" id="input-courses" min="1" value="350"></input>
+    <label for="input-rooms">Rooms (min 10) </label>
+    <input type="number" id="input-rooms" min="10" value="20"></input>
+    <label for="input-days">Days to schedule </label>
+    <input type="number" id="input-days" min="1" max="7" value="2"></input>
+    <label for="input-per-prof">Courses taught by each professor (max 5) </label>
+    <input type="number" id="input-per-prof" min="1" max="5" value="2"></input>
+    </div>
+
+    <div id="inputs-genetic">
+      <div id="inputs-gens">
+        <label for="input-generations">Generations </label>
+        <input type="number" id="input-generations" min="1" value="5000"></input>
+      </div>
+      <div id="inputs-pop">
+        <label for="input-population">Population size </label>
+        <input type="number" id="input-population" min="2" value="50"></input>
+      </div>
+      <div id="inputs-cross">
+      <label for="input-crossover">Crossover rate (%) </label>
+      <input type="number" id="input-crossover" min="0" max="100" value="90"></input>
+    </div>
+      <div id="inputs-mutation">
+        <label for="input-mutation">Mutation rate (%) </label>
+        <input type="number" id="input-mutation" min="0" max="100" value ="10"></input>
+      </div>
+      <div id="inputs-degree">
+        <label for="input-mut-deg">Degree of mutation (%) </label>
+        <input type="number" id="input-mut-deg" min="0" max="100" value="80"></input>
+      </div>
+      <div id="inputs-speed">
+      <label for="input-speed">New generation every </label>
+      <select id="input-speed">
+        <option value="2000">2 seconds</option>
+        <option value="1000">second</option>
+        <option value="500">1/2 second</option>
+        <option value="100">1/10 second</option>
+        <option value="10" selected>1/100 second</option>
+      </select>
+      </div>
+    </div>
+
+    <div id="buttons">
+      <button id="button-setup" onclick="setup()">Create Courses and Rooms</button>
+      <button id="button-mcv" onclick="startMCV()" disabled="true">Most Constrained</button>
+      <button id="button-genetic" onclick="startGenetic()" disabled="true">Genetic</button>
+
+      <button id="button-stop" onclick="stopGenerations()" disabled="true">STOP</button>
+    </div>
+  </div>
+
+  <div id="stats">
+    <p>
+      <span id="fitness-or-sat-info"></span>
+      <span id="fitness-of-best"></span>
+      <span id="generation-info">This is generation <span id="gen-number"></span></span>
+    </p>
+  </div>
+
+<table id="courseTable">
+  <thead>
+    <td>Course</td>
+    <td>Instructor</td>
+    <td>Requirements</td>
+    <td>Time</td>
+    <td>Room</td>
+    <td>Satisfaction</td>
+  </thead>
+  <tbody>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+<div id="calArea">
+  <div id="xbox" onclick="hideCalendarArea()">x</div>
+  <table id="calTable">
+    <caption></caption>
+  </table>
+  <p><span id="personal-prefs"></span></p>
+</div>
+
+<footer>
+  <a href="about.html" target="_blank">About</a>
+  <div id="copyright">&copy; Claire Laville, 2018</div>
+</footer>
+
+</body>

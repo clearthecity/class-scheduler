@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <title>About This Project</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<header>
+  <h2>A Complex Scheduling Problem</h2>
+</header>
+
+<section id="about-main">
+  <h2>Simulation</h2>
+  <p><strong>Rooms.</strong> 10% of the rooms are art studios, 15% are science labs, and 15% are computer labs. At least 10% of the rooms are lecture halls (which seat a large class) and about 25% of the rooms seat a medium-sized class. About 80% of rooms are wheelchair accessible.</p>
+  <p><strong>Courses.</strong> Each course meets for one hour, one day per week (hey, it&rsquo;s a model). The requirements of each course are determined by random variables. About 5% of courses require a wheelchair accessible room. A few courses will be nearly impossible to assign in a satisfactory way (e.g., a computing course with 60 students); in this respect, the model is realistic.</p>
+  <p><strong>Professors.</strong> About 5% of professors have a family or medical obligation that cuts into their work availability. When the week length is 1 or 2 days, these professors have 4 hours of one day blocked off; when the week length is longer, they have one day blocked off. These restrictions are strictly enforced in both MCV and the genetic algorithm. An additional 20% of professors have a preference for either morning or afternoon classes. These requests are not strictly enforced, but they do contribute to the satisfaction score for a course.</p>
+  <p><strong>Satisfaction.</strong> An integer representing how happy the students and professor are with the assigned room and timeslot. An ideal assignment has a score of 100. Serious problems (e.g., a course that needs to be in an art studio isn&rsquo;t given one; an inaccessible room given a wheelchair user) lose 60 to 70 points. A room that&rsquo;s too small loses 3*(students in the course - seats in the room) points. Minor annoyances (e.g., a non-science class in a science lab; a professor who doesn&rsquo;t like mornings; a room that’s far too big) lose 10 to 20 points. An unassigned course has a satisfaction score of -500. </p>
+
+  <h5 onclick="expandCollapse('pseudo-simulation')">Pseudocode for simulation setup (click to expand/collapse)</h5>
+  <ul style="display: none" class="pseudocode" id="pseudo-simulation">
+    <li>Get simulation values (NUM_COURSES, NUM_ROOMS, DAYS_OPEN, COURSES_PER_PROF) from user</li>
+    <li>For i in range[0, NUM_COURSES):</li>
+    <ul>
+      <li>Create a new Course using random variables for course attributes</li>
+      <li>If (i % COURSES_PER_PROF == 0):</li>
+      <ul>
+        <li>Create a new Professor using random variables for time preferences</li>
+        <li>Set Available[d][h] = True for all days d and all hours h, unless [d][h] is a time off</li>
+        <li>Push the Professor onto professors[]</li>
+        <li>Assign the Professor to the Course by index in professors[]</li>
+      </ul>
+      <li>Else:</li>
+      <ul>
+        <li>Assign the same Professor as courses[i-1]</li>
+      </ul>
+      <li>Push the Course onto courses[]</li>
+    </ul>
+    <li>For i in range[0, NUM_ROOMS):</li>
+    <ul>
+      <li>Create a new Room using random variables for room attributes<li>
+      <li>Set Available[d][h] = True for all days d and all hours h</li>
+      <li>If the room is small, a random variable might make it medium or large</li>
+      <li>Push the Room onto rooms[]</li>
+    </ul>
+  </ul>
+
+  <h2>Algorithms</h2>
+  <p><strong>Most Constrained Variable First.</strong> Lorem ipsum</p>
+  <h5 onclick="expandCollapse('pseudomcv')">Pseudocode (click to expand/collapse)</h5>
+  <ul style="display: none" class="pseudocode" id="pseudomcv">
+    <li><em>Assignment, first pass.</em>  For each Course in courses[]:</li>
+    <ul>
+      <li>Generate a random timeslot</li>
+	    <li>While the course’s Professor is unavailable at that time:</li>
+      <ul>
+        <li>Generate another random timeslot</li>
+      </ul>
+      <li>If the course needs a special room (Studio, Lab, Computer) or has LARGE_CLASS students:</li>
+      <ul>
+        <li>Get the first Room in rooms[] matching that requirement</li>
+		    <li>While the Room is unavailable at the chosen time:</li>
+        <ul>
+          <li>Get the next Room matching requirement</li>
+        </ul>
+        <li>Add timeslot to Room’s Available[] array (set to false)</li>
+        <li>Add timeslot to Professor’s Available[] array (set to false)</li>
+        <li>Update Course information to include room index, day index, hour index</li>
+      </ul>
+    </ul>
+    <li><em>Second pass.</em>  For each Course in courses[]:</li>
+    <!-- ... -->
+  </ul>
+  <p><strong>Genetic Algorithm.</strong> Lorem ipsum</p>
+  <p id="about-mutation"><em>Mutation</em>: The constant MUTATION_RATE determines how likely a schedule is to undergo mutation. If a schedule mutates, the constant DEGREE_OF_MUTATION determines the maximum number of courses that will be changed.</p>
+  <h5>Pseudocode (click to expand/collapse)</h5>
+
+  <h2>Code</h2>
+  <p>Written in &ldquo;raw&rdquo; JavaScript, HTML, and CSS.</p>
+  <p>This project has been tested on Chrome and Firefox. No guarantees for any other browser.</p>
+
+  <h2>References</h2>
+  <p class="biblio">Alligator.io. (2018). Making elements stick in CSS using position: sticky. Retrieved from <a href="https://alligator.io/css/position-sticky/">https://alligator.io/css/position-sticky</a>.</p>
+  <p class="biblio">Jacobsen, L. (2012, Feb. 12). Creating a genetic algorithm for beginners. <em>The Project Spot.</em> Retrieved from <a href="http://www.theprojectspot.com/tutorial-post/creating-a-genetic-algorithm-for-beginners/3">http://www.theprojectspot.com/tutorial-post/creating-a-genetic-algorithm-for-beginners/3</a></p>
+  <p class="biblio">Mitchell, M. (1996). <em>An introduction to genetic algorithms.</em> Cambridge, MA: MIT Press. <em>EbscoHost.</em></p>
+  <p class="biblio">Russell, S., & Norvig., P. (2010). <em>Artificial intelligence: A modern approach.</em> Upper Saddle River, NJ: Pearson.</p>
+  <p class="biblio">W3Schools. (2018). Retrieved from <a href="http://www.w3schools.com">https://www.w3schools.com</a> </p>
+
+</section>
+
+<footer>
+  <!-- a, not span, so it still works if user opened about page in new tab -->
+  <a id="close-about" onclick="window.close()" href="class_schedule.html">Close</a>
+  <div id="copyright">&copy; Claire Laville, 2018</div>
+</footer>
+
+<script>
+
+function expandCollapse(listID) {
+  var list = document.getElementById(listID);
+  if (list.style.display == "none")
+    list.style.display = "inline-block";
+  else
+    list.style.display = "none";
+}
+
+</script>
+
+</body>

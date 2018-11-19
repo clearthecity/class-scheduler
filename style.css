@@ -1,0 +1,260 @@
+
+#form-inputs {
+  background-color: rgba(255, 228, 179, 0.5);
+  padding: 1em;
+}
+
+#form-inputs input {
+  display: block;
+  width: 4em;
+}
+
+#form-inputs label {
+  margin-top: 0.8em;
+  display: inline-block;
+}
+
+#inputs-setup {
+  float: left;
+}
+
+#inputs-genetic {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0 10px 10px 10px;
+  margin-left: 10%;
+  /*max-width: 35%;*/
+  float: left;
+  background-color: orange;
+}
+
+#inputs-gens {
+  display: block;
+  float: left;
+}
+
+#inputs-pop {
+  padding-left: 3.5em;
+  float: left;
+}
+
+#inputs-cross {
+  float: left;
+  clear: both;
+}
+
+#inputs-mutation {
+  display: block;
+  float: left;
+  clear: both;
+}
+
+#inputs-degree {
+  padding-left: 1.25em;
+  float: left;
+}
+
+#inputs-speed {
+  float: left;
+  clear: both;
+}
+
+#genetic-speed {
+  width: 200px;
+}
+
+#form-inputs #buttons {
+  padding-top: 1.5em;
+  clear: both;
+}
+
+button {
+  font-size: 0.9em;
+  padding: 0.3em 0.4em 0.3em 0.4em;
+  border-radius: 0.3em;
+  margin-right: 0.5em;
+  background-color: #f0f0f0; //grey (Firefox default)
+}
+
+button:hover {
+  background-color: orange;
+}
+
+button:disabled:hover {
+  background-color: #f0f0f0;
+}
+
+#button-stop:hover {
+  background-color: #990000; //red
+}
+
+#button-stop:disabled:hover {
+  background-color: #f0f0f0;
+}
+
+#stats {
+  display: none;
+}
+
+#stats p {
+  padding-left: 20px;
+}
+
+#generation-info {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*
+header and footer
+*/
+
+header, footer {
+  background-color: rgba(255, 228, 179, 0.5);
+  position: relative;
+  clear: both;
+  padding: 2em;
+}
+
+header {
+  margin-bottom: 2em;
+}
+
+footer {
+  margin-top: 2em;
+}
+
+#close-about {
+  color: blue;
+}
+
+#copyright {
+  float: right;
+}
+
+/*
+* Tables (schedule and individual calendars)
+*/
+
+
+#courseTable {
+  padding-top: 20px;
+}
+
+table thead {
+  font-weight: bold;
+}
+
+#courseTable td {
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
+
+/*
+* individual calendars
+*/
+
+.cal-link {
+  color: blue;
+}
+
+.cal-link:hover {
+  text-decoration: underline;
+}
+
+#calArea {
+  display: none; /*hidden at first */
+  max-width: 30%;
+  position: sticky;
+  bottom: 2em; /*moves if user scrolls below this point*/
+  margin-left: 60%;
+  float: left;
+  padding: 8px;
+  border: 1px solid black;
+  box-shadow: 0px 3px 4px 2px rgba(0,0,0,0.2); /*offsetX, offsetY, [blur], [spread], colour */
+  z-index: 1;
+
+}
+
+#calArea p {
+  text-align: center;
+}
+
+#calArea #xbox {
+  float: left;
+  clear: right;
+  padding: 0 4px 0 2px;
+}
+
+#calArea #xbox:hover {
+  text-decoration: underline;
+}
+
+#calTable td {
+  width: 20px;
+  padding: 3px 5px 3px 5px;
+}
+
+#calTable td span.cal-avail {
+  background-color: #e0ffff; /*light cyan*/
+}
+
+#calTable td span.cal-unavail {
+  background-color: #FFA07A; /*light salmon */
+}
+
+#calTable caption {
+  background-color: #e0ffff; /*light cyan*/
+}
+
+/*
+About page
+*/
+
+header h2 {
+  margin: 0;
+}
+
+#about-main {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+#about-main h2 {
+  padding-top: 1em;
+}
+
+#about-main h2:first-of-type {
+  padding-top: 0;
+}
+
+#about-main p {
+  text-indent: 0.5em;
+}
+
+#about-main p.biblio {
+  margin-left: 0.5em;
+  text-indent: -0.5em;
+}
+
+h5:hover {
+  background-color: rgba(255, 228, 179, 0.5);
+}
+
+.pseudocode {
+  margin-top: -0.5em;
+  margin-left: 1em;
+  list-style-type: none;
+}
+
+.pseudocode li {
+  list-style-type: none;
+}
