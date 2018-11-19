@@ -34,7 +34,7 @@ function setup() {
   clearCalendar();
   algorithms_tried = 0;
   document.getElementById("calArea").style.display = "none";
-  document.getElementById("stats").style.display = "none";
+  document.getElementById("stats").style.visibility = "hidden";
 
   NUM_COURSES = document.getElementById("input-courses").value;
   NUM_ROOMS = document.getElementById("input-rooms").value;
@@ -244,7 +244,7 @@ function createRooms() {
 
 function startMCV() {
   clearTable();
-  
+
   if (algorithms_tried > 0) {
     for (var c = 0; c < courses.length; c++)
       courses[c].clearAssignment();
@@ -506,7 +506,7 @@ function displayStats_MCV() {
   document.getElementById("fitness-or-sat-info").innerHTML = "Average satisfaction: ";
   document.getElementById("fitness-of-best").innerHTML = avg_sat.toFixed(2);
   document.getElementById("generation-info").style.display = "none";
-  document.getElementById("stats").style.display = "inline";
+  document.getElementById("stats").style.visibility = "visible";
 }
 
 function clearTable() {
@@ -1101,5 +1101,5 @@ function displayStats_Genetic(best_sat) {
   document.getElementById("fitness-of-best").innerHTML = best_sat.toFixed(2) + ". ";
   document.getElementById("gen-number").innerHTML = genCount;
   document.getElementById("generation-info").style.display = "inline";
-  document.getElementById("stats").style.display = "inline";
+  document.getElementById("stats").style.visibility = "visible";
 }
