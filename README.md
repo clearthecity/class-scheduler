@@ -2,4 +2,4 @@
 
 Submitted for COMP 3710, Fall 2018.
 
-For project details, see the About page.
+To use the program, download the ZIP and open class_schedule.html (best in Firefox or Chrome).
