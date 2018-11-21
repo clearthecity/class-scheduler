@@ -24,12 +24,12 @@
   <p><em>Third pass: requests.</em>  Among the remaining unassigned courses, if the professor prefers early/late meetings, try to find an available room at an early/late time.</p>
   <p><em>Fourth pass: lightning round.</em> Force the remaining unassigned courses into rooms and timeslots, regardless of fit. 
 Results. Get the satisfaction score for each course in its assigned room and time, and the average satisfaction for the whole schedule.</p>
-  <p></p>
+  <br>
 
   <p><strong>Genetic Algorithm.</strong></p>
-<p>Populate first generation. A two-dimensional array, current_gen, is filled with of POPULATION_SIZE randomly generated schedules, with two constraints: a professor can’t teach two courses at once, and a room can’t hold two classes at once. The best schedule is stored in current_best[]. Incrememnt generation count.</p>
-<p>Next generations (runs NUM_GENERATIONS-1 times or until stopped). The schedules in current_gen are evaluated for fitness based on average satisfaction scores. The best schedule in the generation is compared with current_best, with current_best updated if necessary. CROSSOVER_RATE percent of the schedules in the current generation “mate” to produce offspring. If there is a collision in a room or professor timetable, we make a small change to a course booking (e.g., move it ahead one hour). Push offspring and survivors onto new_gen, a 2D array. The constant MUTATION_RATE determines how likely a schedule is to undergo mutation. If a schedule mutates, the constant DEGREE_OF_MUTATION determines the maximum number of courses that will be changed (again, avoiding collisions). Set current_gen to point to the new_gen array. Increment generation count.</p>
-<p>Results. The schedules in current_gen are evaluated for fitness one more time. The best schedule in the generation is compared with the overall best, with current_best[] updated if necessary. The schedule in current_best is displayed to the user, along with average satisfaction.</p>
+  <p><em>Populate first generation.</em>  A two-dimensional array, current_gen, is filled with of POPULATION_SIZE randomly generated schedules, with two constraints: a professor can’t teach two courses at once, and a room can’t hold two classes at once. The best schedule is stored in current_best[]. Incrememnt generation count.</p>
+  <p><em>Next generations (runs NUM_GENERATIONS-1 times or until stopped).</em>  The schedules in current_gen are evaluated for fitness based on average satisfaction scores. The best schedule in the generation is compared with current_best, with current_best updated if necessary. CROSSOVER_RATE percent of the schedules in the current generation “mate” to produce offspring. If there is a collision in a room or professor timetable, we make a small change to a course booking (e.g., move it ahead one hour). Push offspring and survivors onto new_gen, a 2D array. The constant MUTATION_RATE determines how likely a schedule is to undergo mutation. If a schedule mutates, the constant DEGREE_OF_MUTATION determines the maximum number of courses that will be changed (again, avoiding collisions). Set current_gen to point to the new_gen array. Increment generation count.</p>
+  <p><em>Results.</em> The schedules in current_gen are evaluated for fitness one more time. The best schedule in the generation is compared with the overall best, with current_best[] updated if necessary. The schedule in current_best is displayed to the user, along with average satisfaction.</p>
 
   <h2>Code</h2>
   <p>Written in &ldquo;raw&rdquo; JavaScript, HTML, and CSS.</p>
@@ -37,7 +37,6 @@ Results. Get the satisfaction score for each course in its assigned room and tim
 
   <h2>References</h2>
   <p class="biblio">Alligator.io. (2018). Making elements stick in CSS using position: sticky. Retrieved from <a href="https://alligator.io/css/position-sticky/">https://alligator.io/css/position-sticky</a>.</p>
-  <p class="biblio">Jacobsen, L. (2012, Feb. 12). Creating a genetic algorithm for beginners. <em>The Project Spot.</em> Retrieved from <a href="http://www.theprojectspot.com/tutorial-post/creating-a-genetic-algorithm-for-beginners/3">http://www.theprojectspot.com/tutorial-post/creating-a-genetic-algorithm-for-beginners/3</a></p>
   <p class="biblio">Mitchell, M. (1996). <em>An introduction to genetic algorithms.</em> Cambridge, MA: MIT Press. <em>EbscoHost.</em></p>
   <p class="biblio">Russell, S., & Norvig., P. (2010). <em>Artificial intelligence: A modern approach.</em> Upper Saddle River, NJ: Pearson.</p>
   <p class="biblio">W3Schools. (2018). Retrieved from <a href="http://www.w3schools.com">https://www.w3schools.com</a> </p>
