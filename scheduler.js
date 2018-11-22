@@ -690,7 +690,6 @@ function startGenetic() {
   SPEED = document.getElementById("input-speed").value;
 
   if (algorithms_tried > 0) {
-    clearTable();
     for (var c = 0; c < courses.length; c++)
       courses[c].clearAssignment();
     for (var p = 0; p < professors.length; p++)
@@ -700,6 +699,7 @@ function startGenetic() {
   }
   algorithms_tried++;
 
+  clearTable();
   document.getElementById("button-stop").disabled = false;
   document.getElementById("button-mcv").disabled = true;
 
