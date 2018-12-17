@@ -20,14 +20,14 @@
   <h2>Algorithms</h2>
   <p><strong>Most Constrained Variable First.</strong></p>
   <p><em>Assignment, first pass: most constrained variables.</em>  For each Course in the array, check if the room requires an art studio, science lab, computer lab, or large lecture hall. In those cases, choose a random timeslot and make sure the professor is available.  Search the rooms array for an appropriate room that’s available during the timeslot. Check wheelchair access if needed.</p> 
-  <p><em>Second pass: moderately constrained variables.</em>  For each unassigned Course in the array, choose a random timeslot and make sure the professor is available. Find rooms and timeslots for medium-sized courses and courses needing wheelchair access.</p>
+  <p><em>Second pass: moderately constrained variables.</em>  For each unassigned Course in the array, see if it needs a medium-sized room or a wheelchair-accessible room. In those cases, choose a random timeslot, make sure the professor is available, and find an appropriate room.</p>
   <p><em>Third pass: requests.</em>  Among the remaining unassigned courses, if the professor prefers early/late meetings, try to find an available room at an early/late time.</p>
-  <p><em>Fourth pass: lightning round.</em> Force the remaining unassigned courses into rooms and timeslots, regardless of fit. 
-Results. Get the satisfaction score for each course in its assigned room and time, and the average satisfaction for the whole schedule.</p>
+  <p><em>Fourth pass: lightning round.</em> Force the remaining unassigned courses into rooms and timeslots, regardless of fit.</p>
+  <p><em>Results</em>. Get the satisfaction score for each course in its assigned room and time, and the average satisfaction for the whole schedule.</p>
   <br>
 
   <p><strong>Genetic Algorithm.</strong></p>
-  <p><em>Populate first generation.</em>  A two-dimensional array, current_gen, is filled with of POPULATION_SIZE randomly generated schedules, with two constraints: a professor can’t teach two courses at once, and a room can’t hold two classes at once. The best schedule is stored in current_best[]. Incrememnt generation count.</p>
+  <p><em>Populate first generation.</em>  A two-dimensional array, current_gen, is filled with of POPULATION_SIZE randomly generated schedules, with two constraints: a professor can’t teach two courses at once, and a room can’t hold two classes at once. The best schedule is stored in current_best[]. Increment generation count.</p>
   <p><em>Next generations (runs NUM_GENERATIONS-1 times or until stopped).</em>  The schedules in current_gen are evaluated for fitness based on average satisfaction scores. The best schedule in the generation is compared with current_best, with current_best updated if necessary. CROSSOVER_RATE percent of the schedules in the current generation “mate” to produce offspring. If there is a collision in a room or professor timetable, we make a small change to a course booking (e.g., move it ahead one hour). Push offspring and survivors onto new_gen, a 2D array. The constant MUTATION_RATE determines how likely a schedule is to undergo mutation. If a schedule mutates, the constant DEGREE_OF_MUTATION determines the maximum number of courses that will be changed (again, avoiding collisions). Set current_gen to point to the new_gen array. Increment generation count.</p>
   <p><em>Results.</em> The schedules in current_gen are evaluated for fitness one more time. The best schedule in the generation is compared with the overall best, with current_best[] updated if necessary. The schedule in current_best is displayed to the user, along with average satisfaction.</p>
 
