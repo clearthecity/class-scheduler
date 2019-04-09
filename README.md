@@ -2,4 +2,4 @@
 
 Submitted for COMP 3710, Fall 2018.
 
-To use the program, download the master, unzip, and open class_schedule.html (best in Firefox or Chrome).
+Demo at https://clearthecity.github.io/class-scheduler/class_schedule.html (best in Firefox or Chrome).
